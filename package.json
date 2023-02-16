@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm run prettier && npm run eslint",
+    "eslint": "eslint --fix 'src/*.ts'",
+    "prettier": "prettier --write 'src/*.ts'"
   },
   "author": "",
   "license": "ISC",
