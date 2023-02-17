@@ -1,6 +1,12 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import { collectDefaultMetrics, register } from 'prom-client';
-import { ongoingRequests, requestCount, responseDuration, errorCount, clientErrorCount } from './metrics';
+import { 
+  ongoingRequests, 
+  requestCount, 
+  responseDuration, 
+  errorCount, 
+  clientErrorCount,
+  responseDurationHistogram } from './metrics';
 
 export interface PromOptions {
   metricsPath?: string;
@@ -45,6 +51,7 @@ export const promMiddleware = (options: PromOptions) => {
         // Calculate the difference between the start time and end time in milliseconds
         const diffInMs = Number(end - start) / 1000000;
         responseDuration.observe({ path: req.originalUrl, method: req.method }, diffInMs);
+        responseDurationHistogram.observe({ path: req.originalUrl, method: req.method }, diffInMs);
 
         // record error count and client error count
         if (res.statusCode >= 500 && res.statusCode <= 511) {
