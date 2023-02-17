@@ -26,8 +26,7 @@ const PORT = process.env.PORT || 3000;
 app.use(promMiddleware());
 
 app.get('/hello', (req, res) => {
-  const { name = 'Anon' } = req.query;
-  res.json({ message: `Hello, ${name}!` });
+  res.json({ message: `Hello World!` });
 });
 
 const server = app.listen(PORT, () => {
@@ -58,6 +57,13 @@ app.use(promMiddleware({
 ### Metrics  
 This middleware module exposes the following metrics:
 
+- Default metrics from [prom-client](https://github.com/siimon/prom-client)
+- `http_requests_in_progress` - a Gauge that shows HTTP requests that are currently in process
+- `http_requests_total` - a Counter which counts the total number of HTTP requests
+- `http_response_latency_ms`: - a Summary that shows the duration of responses in milliseconds
+- `http_response_latency_histogram`: - a Histogram that shows the duration of responses in milliseconds in buckets
+- `http_errors_total`: - a Counter that tracks the total number of server-side errors
+- `http_errors_client_total`: - a Counter that tracks the total number of client-side errors
 
 
 
