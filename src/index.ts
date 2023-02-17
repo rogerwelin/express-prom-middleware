@@ -38,7 +38,7 @@ export const promMiddleware = (options: PromOptions) => {
     let start: bigint;
 
     if (opts.normalizePaths && !normalizer) {
-       normalizer = new UrlValueParser();
+      normalizer = new UrlValueParser();
     }
 
     // increment ongoing requests count
