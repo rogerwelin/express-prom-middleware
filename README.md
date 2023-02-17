@@ -3,9 +3,9 @@
 This is an Express.js middleware module that allows you to easily add Prometheus metrics to your Express.js application. 
 Prometheus is a powerful monitoring and alerting system that allows you to track various metrics related to your application's performance.
 
-✅ plug-in play RED (Requests Errors Durations) metrics
-✅ typescript
-✅ few dependencies
+✅ plug-in play RED (Requests Errors Durations) metrics  
+✅ typescript  
+✅ few dependencies  
 
 ### Installation
 
@@ -17,7 +17,7 @@ npm install express-prom-middleware
 
 ```typescript
 import express from 'express';
-import { promMiddleware } from './prom'
+import { promMiddleware } from 'express-prom-middleware':
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,7 +26,6 @@ const PORT = process.env.PORT || 3000;
 app.use(promMiddleware());
 
 app.get('/hello', (req, res) => {
-  console.log('GET /hello');
   const { name = 'Anon' } = req.query;
   res.json({ message: `Hello, ${name}!` });
 });
@@ -49,7 +48,7 @@ This middleware module can be configured using an options object passed to the p
 Here's an example of how to configure the middleware module:
 
 ```js
-app.use(Prometheus({
+app.use(promMiddleware({
   metricsPath: '/metrics',
   collectDefaultMetrics: true,
   normalizePath: true,
@@ -58,6 +57,10 @@ app.use(Prometheus({
 
 ### Metrics  
 This middleware module exposes the following metrics:
+
+
+
+
 
 
 
