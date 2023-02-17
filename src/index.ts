@@ -9,9 +9,17 @@ export interface PromOptions {
 }
 
 export const promMiddleware = (options: PromOptions) => {
+  // default options
+  const opts = {
+    metricsPath: '/metrics',
+    collectDefaultMetrics: true,
+    normalizePaths: true,
+    ...options,
+  };
+
   const app: Express = express();
 
-  if (options.collectDefaultMetrics) {
+  if (opts.collectDefaultMetrics) {
     collectDefaultMetrics();
   }
 
@@ -45,7 +53,7 @@ export const promMiddleware = (options: PromOptions) => {
 
   app.use(promRedMiddleware);
 
-  app.get((options.metricsPath = '/metrics'), async (req: Request, res: Response) => {
+  app.get((opts.metricsPath = '/metrics'), async (req: Request, res: Response) => {
     res.set('Content-Type', register.contentType);
     res.end(await register.metrics());
   });
