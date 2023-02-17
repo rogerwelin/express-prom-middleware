@@ -1,7 +1,13 @@
 {
   "name": "express-prometheus-red-middleware",
   "version": "0.0.1",
-  "description": "",
+  "description": "prometheus metrics middleware for express",
+  "keywords": [
+    "express",
+    "prometheus",
+    "metrics",
+    "red"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
