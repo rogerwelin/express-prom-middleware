@@ -1,5 +1,5 @@
 {
-  "name": "express-prometheus-red-middleware",
+  "name": "express-prom-middleware",
   "version": "0.0.1",
   "description": "prometheus metrics middleware for express",
   "keywords": [
