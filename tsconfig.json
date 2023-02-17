@@ -10,7 +10,7 @@
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noImplicitThis": true,
-    "alwaysStrict": true
+    "alwaysStrict": true,
     "esModuleInterop": true
   },
   "include": ["src"],

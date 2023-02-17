@@ -2,15 +2,26 @@
   "name": "express-prometheus-red-middleware",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npm run prettier && npm run eslint",
     "eslint": "eslint --fix 'src/*.ts'",
     "prettier": "prettier --write 'src/*.ts'"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Roger Welin",
+    "email": "roger.welin@icloud.com",
+    "url": "https://rogerwelin.github.io"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  ],
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@typescript-eslint/eslint-plugin": "^5.52.0",

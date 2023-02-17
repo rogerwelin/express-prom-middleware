@@ -1,5 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import { collectDefaultMetrics, register } from 'prom-client';
+import { inProgress } from './metrics';
 
 export interface PromOptions {
   metricsPath?: string;
@@ -15,7 +16,16 @@ export const promMiddleware = (options: PromOptions) => {
   }
 
   const promRedMiddleware = (req: Request, res: Response, next: NextFunction) => {
-    console.log(req);
+    if (req.path !== options.metricsPath) {
+      inProgress.inc({ path: req.path, method: req.method });
+    }
+
+    res.on('finish', () => {
+      if (req.originalUrl !== options.metricsPath) {
+        inProgress.dec({ path: req.path, method: req.method });
+      }
+    });
+
     next();
   };
 
