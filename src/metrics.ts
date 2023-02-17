@@ -1,4 +1,10 @@
-import { Counter, Gauge, Histogram, Summary, exponentialBuckets } from 'prom-client';
+import {
+  Counter,
+  Gauge,
+  Histogram,
+  Summary,
+  exponentialBuckets,
+} from 'prom-client';
 
 export const ongoingRequests = new Gauge({
   name: 'http_requests_in_progress',
