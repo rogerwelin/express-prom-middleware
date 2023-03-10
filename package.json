@@ -1,15 +1,17 @@
 {
-  "name": "express-prom-middleware",
-  "version": "0.1.0",
+  "name": "express-red-middleware",
+  "version": "0.1.2",
   "description": "prometheus metrics middleware for express",
   "keywords": [
     "express",
     "prometheus",
     "metrics",
-    "red"
+    "red",
+    "middleware"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": ["lib/**/*"],
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,12 +25,13 @@
     "url": "https://rogerwelin.github.io"
   },
   "license": "MIT",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
-    }
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogerwelin/express-prom-middleware"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
@@ -44,5 +47,9 @@
   "peerDependencies": {
     "express": "4.x",
     "prom-client": ">= 14.x"
+  },
+  "engines": {
+    "node": ">=14"
   }
+
 }
