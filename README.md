@@ -10,14 +10,14 @@ Prometheus is a powerful monitoring and alerting system that allows you to track
 ### Installation
 
 ```bash
-npm install express-prom-middleware
+npm install express-red-middleware
 ```
 
 ### Usage
 
 ```typescript
 import express from 'express';
-import { promMiddleware } from 'express-prom-middleware':
+import { promMiddleware } from 'express-red-middleware':
 
 const app = express();
 const PORT = process.env.PORT || 3000;
